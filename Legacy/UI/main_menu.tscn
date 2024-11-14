@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2txj4twn6rwe"]
+
+[ext_resource type="VideoStream" path="res://Legacy/Cutscene/Main_Menu_Cutscene.ogv" id="1_b4pyv"]
+[ext_resource type="FontFile" uid="uid://lv6h5hecdu6" path="res://Legacy/Assets/Font/ARIAL.TTF" id="1_mf6ff"]
+[ext_resource type="Script" path="res://Legacy/UI/main_menu.gd" id="1_wc478"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wc478")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 2528.0
+offset_bottom = 1424.0
+scale = Vector2(0.759, 0.759)
+stream = ExtResource("1_b4pyv")
+volume_db = -80.0
+autoplay = true
+loop = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 488.0
+offset_top = 3.0
+offset_right = 3394.0
+offset_bottom = 576.0
+scale = Vector2(0.35, 0.35)
+theme_override_fonts/font = ExtResource("1_mf6ff")
+theme_override_font_sizes/font_size = 512
+text = "Brain_St()rm"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 678.0
+offset_top = 320.0
+offset_right = 2758.0
+offset_bottom = 1120.0
+grow_horizontal = 2
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 512
+text = "Play"
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 674.0
+offset_top = 727.0
+offset_right = 2754.0
+offset_bottom = 1527.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 512
+text = "Quit"
+icon_alignment = 1
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

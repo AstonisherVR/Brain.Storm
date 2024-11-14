@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://mtsxkspujrra"]
+
+[ext_resource type="PackedScene" uid="uid://bru2w2bfe4d20" path="res://Legacy/Assets/Models/Office Chair.glb" id="1_t5bdm"]
+
+[node name="Chair" type="StaticBody3D"]
+
+[node name="Office_Chair" parent="." instance=ExtResource("1_t5bdm")]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)

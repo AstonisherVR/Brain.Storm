@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://g5lfkg2cx73"]
+
+[ext_resource type="PackedScene" uid="uid://brt31iyt7r2q2" path="res://Legacy/Assets/Models/DeskProject.glb" id="1_rtm0w"]
+
+[node name="Desk" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.6, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Desk_Model" parent="." instance=ExtResource("1_rtm0w")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)

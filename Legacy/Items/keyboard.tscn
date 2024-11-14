@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmj01ulwa38ws"]
+
+[ext_resource type="PackedScene" uid="uid://g61yhr4bs5nf" path="res://Legacy/Assets/Models/Keyboard.glb" id="1_gd46y"]
+
+[node name="Keyboard" type="StaticBody3D"]
+
+[node name="Keyboard" parent="." instance=ExtResource("1_gd46y")]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dguqm8j1sb22m"]
+
+[ext_resource type="PackedScene" uid="uid://1rga85acjok2" path="res://Legacy/Assets/Models/Bed.glb" id="1_032dw"]
+
+[node name="Bed" type="StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Bed_Model" parent="." instance=ExtResource("1_032dw")]
+transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, 0, 0, 0)
+
+[node name="Shadow" parent="Bed_Model" index="1"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[editable path="Bed_Model"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5mjc67ma8vig"]
+
+[ext_resource type="Script" path="res://Player/brain.gd" id="1_s7bdb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_878jv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxvft"]
+albedo_color = Color(0.846822, 0.511175, 0.679883, 1)
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+subsurf_scatter_transmittance_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_bg6wx"]
+material = SubResource("StandardMaterial3D_mxvft")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4kp3m"]
+
+[node name="Brain" type="SoftBody3D"]
+mesh = SubResource("CapsuleMesh_878jv")
+script = ExtResource("1_s7bdb")
+speed = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_bg6wx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4kp3m")
+
+[node name="PlayerCamera" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 4)
+current = true

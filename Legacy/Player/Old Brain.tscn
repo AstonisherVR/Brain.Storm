@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnk8bl0i2ybqi"]
+
+[ext_resource type="Script" path="res://Legacy/Player/Brain.gd" id="1_xx3kj"]
+[ext_resource type="PackedScene" uid="uid://2kjygicu85fw" path="res://Legacy/Assets/Models/Brain.blend" id="2_jsgci"]
+[ext_resource type="PackedScene" uid="uid://wmf2eu0uuhrg" path="res://Legacy/addons/third-person-camera/third_person_camera/ThirdPersonCamera.tscn" id="3_q4uyl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ss50m"]
+
+[node name="Old Brain" type="RigidBody3D"]
+script = ExtResource("1_xx3kj")
+
+[node name="Brain" parent="." instance=ExtResource("2_jsgci")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_ss50m")
+
+[node name="ThirdPersonCamera" parent="." instance=ExtResource("3_q4uyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0275831, 0.361946, 0.167141)

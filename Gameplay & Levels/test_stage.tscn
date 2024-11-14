@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2atj2f6qb3yx"]
+
+[ext_resource type="PackedScene" uid="uid://c5mjc67ma8vig" path="res://Player/brain.tscn" id="1_iouyf"]
+[ext_resource type="Texture2D" uid="uid://bvi5eko3em78h" path="res://icon.svg" id="2_ce6pg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2aiuh"]
+albedo_texture = ExtResource("2_ce6pg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gtrfq"]
+material = SubResource("StandardMaterial3D_2aiuh")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a8pqm"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vqpu4"]
+sky_top_color = Color(0.326278, 0.444985, 0.674634, 1)
+sky_horizon_color = Color(0.543129, 0.677892, 0.753483, 1)
+sky_cover_modulate = Color(0.725115, 0.884716, 0.837765, 1)
+ground_bottom_color = Color(0.216744, 0.271639, 0.419291, 1)
+energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_6g0wu"]
+sky_material = SubResource("ProceduralSkyMaterial_vqpu4")
+
+[sub_resource type="Environment" id="Environment_l1h6r"]
+background_mode = 2
+sky = SubResource("Sky_6g0wu")
+ambient_light_source = 3
+ambient_light_color = Color(0.210775, 0.112553, 0.155108, 1)
+reflected_light_source = 2
+
+[node name="Test Stage" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_gtrfq")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_a8pqm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l1h6r")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.883884, 0.387259, -0.26226, -0.176776, 0.795753, 0.579247, 0.433013, -0.465626, 0.771812, -27, 92, 12)
+light_color = Color(0.943782, 0.968784, 0.651431, 1)
+light_energy = 1.25
+light_indirect_energy = 3.0
+light_angular_distance = 0.1
+shadow_enabled = true
+shadow_bias = 1.0
+directional_shadow_pancake_size = 0.0
+
+[node name="Brain" parent="." instance=ExtResource("1_iouyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 3, 4)

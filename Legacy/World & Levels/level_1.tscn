@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1wki3dxs80w1"]
+
+[ext_resource type="Script" path="res://Legacy/World & Levels/level_1.gd" id="1_cbrjq"]
+[ext_resource type="PackedScene" uid="uid://cnk8bl0i2ybqi" path="res://Legacy/Player/Old Brain.tscn" id="1_ehlxf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g0pw4"]
+
+[sub_resource type="Sky" id="Sky_82ek1"]
+sky_material = SubResource("ProceduralSkyMaterial_g0pw4")
+
+[sub_resource type="Environment" id="Environment_6ugjy"]
+background_mode = 2
+sky = SubResource("Sky_82ek1")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ciysq"]
+size = Vector3(800, 1, 800)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ie46y"]
+size = Vector3(800, 1, 800)
+
+[node name="Level 1" type="Node3D"]
+script = ExtResource("1_cbrjq")
+
+[node name="Brain" parent="." instance=ExtResource("1_ehlxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6ugjy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_ciysq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ie46y")
